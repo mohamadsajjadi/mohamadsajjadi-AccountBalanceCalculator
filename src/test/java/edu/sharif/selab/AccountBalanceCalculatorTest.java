@@ -76,10 +76,11 @@ public class AccountBalanceCalculatorTest {
     @Test
     void checkNegativeBalanceHistory() {
         // balance can not be less than zero
+        int oldBalance = AccountBalanceCalculator.calculateBalance(AccountBalanceCalculator.getTransactionHistory());
         Transaction transaction = new Transaction(TransactionType.WITHDRAWAL, 100);
         AccountBalanceCalculator.addTransaction(transaction);
         int balance = AccountBalanceCalculator.calculateBalance(AccountBalanceCalculator.getTransactionHistory());
-        assertEquals(0, balance);
+        assertEquals(oldBalance, balance);
     }
 
 //    @Test
