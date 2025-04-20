@@ -75,6 +75,7 @@ public class AccountBalanceCalculatorTest {
     }
     @Test
     void checkNegativeBalanceHistory() {
+        // balance can not be less than zero
         Transaction transaction = new Transaction(TransactionType.WITHDRAWAL, 100);
         AccountBalanceCalculator.addTransaction(transaction);
         int balance = AccountBalanceCalculator.calculateBalance(AccountBalanceCalculator.getTransactionHistory());
