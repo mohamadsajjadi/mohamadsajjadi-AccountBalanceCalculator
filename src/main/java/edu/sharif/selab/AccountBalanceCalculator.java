@@ -28,6 +28,14 @@ public class AccountBalanceCalculator {
 
     // Method to add a transaction to the history
     public static void addTransaction(Transaction transaction) {
+        if (transaction.getType() == TransactionType.WITHDRAWAL) {
+            int newBalance = calculateBalance(transactionHistory) - transaction.getAmount();
+            if (newBalance < 0){
+//                throw new java.lang.RuntimeException("Not Enough Credit");
+                System.out.println("Not Enough Credit !");
+                return;
+            }
+        }
         transactionHistory.add(transaction);
     }
 
