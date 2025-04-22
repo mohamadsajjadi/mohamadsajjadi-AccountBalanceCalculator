@@ -18,6 +18,7 @@ public class AccountBalanceCalculator {
             }
 
         }
+        transactionHistory = new ArrayList<>(transactions);
         return balance;
     }
 
